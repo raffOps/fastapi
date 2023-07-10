@@ -1,11 +1,10 @@
 import re
 from pydantic import field_validator
 
-#from app.schemas.base import CustomBaseModel
-from pydantic import BaseModel
+from app.schemas.base import CustomBaseModel
 
 
-class CategorySchema(BaseModel):
+class CategorySchema(CustomBaseModel):
     name: str
     slug: str
 
