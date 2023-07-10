@@ -9,4 +9,4 @@ make_migration:
 	docker compose run --user 1000 app sh -c 'alembic upgrade head'
 
 test:
-	docker compose run app sh -c 'pytest'
+	docker compose run app sh -c 'pytest $(PARAMETER)'

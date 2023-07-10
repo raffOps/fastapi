@@ -1,3 +1,5 @@
+import fastapi.exceptions
+from sqlalchemy.exc import NoResultFound
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, Response, status
 from app.schemas.category import CategorySchema, CategoryOutputSchema
@@ -19,5 +21,15 @@ def add_category(category: CategorySchema, db_session: Session = Depends(get_db_
 def list_categories(db_session: Session = Depends(get_db_session)) -> list[CategoryOutputSchema]:
     uc = CategoryUseCases(db_session)
     return uc.list_categories()
+
+
+@category_router.delete('/delete/{id}')
+def delete_category(id: int, db_session: Session = Depends(get_db_session)) -> Response:
+    uc = CategoryUseCases(db_session)
+    try:
+        uc.delete_category(id)
+        return Response(status_code=fastapi.status.HTTP_200_OK)
+    except NoResultFound:
+        return Response(status_code=fastapi.status.HTTP_404_NOT_FOUND)
 
 

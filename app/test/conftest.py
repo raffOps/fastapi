@@ -65,7 +65,6 @@ def categories_list(
         category_infantil
     ]
 
-
 @pytest.fixture()
 def categories_on_db(
         db_session: sqlalchemy_session,

@@ -1,4 +1,6 @@
+import pytest
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import NoResultFound
 from app.use_cases.category import CategoryUseCases
 from app.db.models import CategoryModel as CategoryModel
 from app.schemas.category import CategorySchema, CategoryOutputSchema
@@ -24,5 +26,20 @@ def test_list_category_use_case(db_session: Session, categories_on_db):
     assert categories[0].name == categories_on_db[0].name
     assert categories[0].slug == categories_on_db[0].slug
     assert categories[0].id == categories_on_db[0].id
+
+
+def test_delete_category_use_case_non_exist(db_session: Session, category_calcado: CategoryModel):
+    use_case = CategoryUseCases(db_session)
+    with pytest.raises(NoResultFound):
+        use_case.delete_category(id=category_calcado.id)
+
+def test_delete_category_use_case(db_session: Session, category_calcado: CategoryModel):
+    db_session.add(category_calcado)
+    db_session.commit()
+    use_case = CategoryUseCases(db_session)
+    use_case.delete_category(id=category_calcado.id)
+    category = db_session.query(CategoryModel).filter_by(id=category_calcado.id).first()
+    assert category is None
+#
 
 

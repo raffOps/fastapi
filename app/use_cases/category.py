@@ -1,3 +1,5 @@
+from sqlalchemy.exc import NoResultFound
+
 from app.db.models import CategoryModel
 from app.schemas.category import CategorySchema, CategoryOutputSchema
 from sqlalchemy.orm import Session
@@ -20,3 +22,14 @@ class CategoryUseCases:
 
     def serialize_category(self, category: CategoryModel) -> CategoryOutputSchema:
         return CategoryOutputSchema(**category.__dict__)
+
+    def delete_category(self, id: int):
+        if (
+            category := self.db_session.query(CategoryModel)
+            .filter_by(id=id)
+            .first()
+        ):
+            self.db_session.delete(category)
+            self.db_session.commit()
+        else:
+            raise NoResultFound
