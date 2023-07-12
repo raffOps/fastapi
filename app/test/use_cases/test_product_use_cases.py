@@ -1,5 +1,6 @@
 import random
 import sys
+from typing import Iterator
 
 import pytest
 from sqlalchemy.orm import Session
@@ -19,8 +20,26 @@ def test_add_product(db_session: Session, product_schema_camisa: ProductSchema, 
     assert product_on_db.stock == product_schema_camisa.stock
     assert product_on_db.price == product_schema_camisa.price
 
+    db_session.delete(product_on_db)
+    db_session.commit()
 
-def test_add_product_category_non_existent(db_session: Session, product_schema_camisa: ProductSchema):
+
+def test_add_product_category_non_existent(db_session: Session, product_schema_camisa: ProductSchema) -> None:
     uc_product = ProductUseCases(db_session)
     with pytest.raises(ValueError):
         uc_product.add(product_schema_camisa, category_slug='FOO')
+
+
+# def test_list_products(db_session: Session, products_on_db: Iterator[ProductModel]) -> None:
+#     uc_product = ProductUseCases(db_session)
+#     products = uc_product.list_products()
+#
+#     assert products_on_db[0].name == products[0].name
+#     assert products_on_db[0].id == products[0].id
+#     assert products_on_db[0].price == products[0].price
+#     assert products_on_db[0].category_id == products[0].category_id
+#
+#     assert products_on_db[1].name == products[1].name
+#     assert products_on_db[1].id == products[1].id
+#     assert products_on_db[1].price == products[1].price
+#     assert products_on_db[1].category_id == products[1].category_id
