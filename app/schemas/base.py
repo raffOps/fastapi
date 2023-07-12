@@ -1,4 +1,6 @@
-from pydantic import BaseModel
+import re
+from pydantic import BaseModel, field_validator
+
 
 class CustomBaseModel(BaseModel):
     def model_dump(self, *args, **kwargs):

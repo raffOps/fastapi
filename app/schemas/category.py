@@ -1,18 +1,12 @@
-import re
-from pydantic import field_validator
+from pydantic import field_validator, Field
 
 from app.schemas.base import CustomBaseModel
 
 
 class CategorySchema(CustomBaseModel):
     name: str
-    slug: str
+    slug: str = Field(pattern='^([a-z]|-|_)+$', min_length=3, max_length=256)
 
-    @field_validator('slug')
-    def validate_slug(cls, slug: str) -> str:
-        if not re.match('^([a-z]|-|_)+$', slug):
-            raise ValueError(f'Invalid slug: {slug}')
-        return slug
 
 class CategoryOutputSchema(CategorySchema):
     id: int

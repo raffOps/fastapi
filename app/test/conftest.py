@@ -4,6 +4,7 @@ import pytest
 from sqlalchemy.orm import Session as sqlalchemy_session
 
 from app.schemas.category import CategorySchema
+from app.schemas.product import ProductSchema
 from app.db.models import CategoryModel
 from app.db.connection import Session
 
@@ -83,3 +84,22 @@ def categories_on_db(
     for category in categories_list:
         db_session.delete(category)
     db_session.commit()
+
+
+@pytest.fixture()
+def category_roupa_on_db(db_session, category_roupa: CategoryModel):
+    db_session.add(category_roupa)
+    db_session.commit()
+    db_session.refresh(category_roupa)
+    yield category_roupa
+    db_session.delete(category_roupa)
+    db_session.commit()
+
+@pytest.fixture()
+def product_schema_camisa():
+    return ProductSchema(
+        name='Camisa Nike',
+        slug='camisa-nike',
+        stock=1,
+        price=1.99
+    )
