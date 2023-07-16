@@ -18,6 +18,8 @@ class ProductUseCases:
         self.db_session.commit()
 
 
+
+
     @staticmethod
     def serialize_product(product: ProductModel) -> ProductOutputSchema:
         return ProductOutputSchema(**product.__dict__)
@@ -29,3 +31,13 @@ class ProductUseCases:
             for product in products
         ]
 
+    def update(self, id: int, product: ProductSchema):
+        if not (
+            product_on_db := self.db_session.query(ProductModel).filter_by(id=id).first()
+        ):
+            raise ValueError(f'Product with id {id} not found')
+        product_on_db.name = product.name
+        product_on_db.slug = product.slug
+        product_on_db.price = product.price
+        product_on_db.stock = product.stock
+        self.db_session.commit()

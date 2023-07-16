@@ -30,6 +30,23 @@ def test_add_product_category_non_existent(db_session: Session, product_schema_c
         uc_product.add(product_schema_camisa, category_slug='FOO')
 
 
+def test_update_product(db_session: Session, products_on_db: list[ProductModel]):
+    product = ProductSchema(
+        name=products_on_db[0].name,
+        slug=products_on_db[0].slug,
+        price=9898,
+        stock=123
+    )
+    uc_product = ProductUseCases(db_session)
+    uc_product.update(products_on_db[0].id, product)
+    new_product = db_session.query(ProductModel).filter_by(id=products_on_db[0].id).first()
+    assert new_product is not None
+    assert new_product.stock == product.stock
+    assert new_product.price == product.price
+
+
+
+
 # def test_list_products(db_session: Session, products_on_db: Iterator[ProductModel]) -> None:
 #     uc_product = ProductUseCases(db_session)
 #     products = uc_product.list_products()

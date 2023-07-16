@@ -97,7 +97,7 @@ def category_roupa_on_db(db_session, category_roupa: CategoryModel):
 @pytest.fixture()
 def product_json_camisa(categories_on_db: list[CategoryModel]) -> dict[str, Any]:
     return {
-        'category_slug': 'teste',
+        'category_slug': categories_on_db[0].slug,
         'product': {
             'name': 'camisa nike',
             'slug': 'camisa_nike',
