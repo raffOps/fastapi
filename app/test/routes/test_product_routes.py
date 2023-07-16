@@ -25,7 +25,7 @@ def test_add_product_route(db_session: Session, product_json_camisa: dict[str, A
     db_session.delete(model)
     db_session.commit()
 
-def test_add_product_route_non_existent_route(db_session: Session, product_json_camisa: dict[str, Any]):
+def test_add_product_route_non_existent_category(db_session: Session, product_json_camisa: dict[str, Any]):
     product_json_camisa['category_slug'] = 'FOO'
     response = client.post(
         url='product/add?category_slug={product_json_camisa["category_slug"]}',
@@ -49,3 +49,14 @@ def test_update_product_route(db_session: Session, products_on_db: list[ProductM
     updated_product = db_session.query(ProductModel).filter_by(id=product_on_db.id).first()
     assert product['stock'] == updated_product.stock
     assert product['price'] == updated_product.price
+
+
+def test_update_product_non_existent(db_session: Session):
+    product = {
+        'name': 'FOO',
+        'slug': 'bar',
+        'stock': 89,
+        'price': 327
+    }
+    response = client.post(url='product/update/999999', json=product)
+    assert response.status_code == status.HTTP_404_NOT_FOUND
