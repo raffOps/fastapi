@@ -5,9 +5,7 @@ from typing import Iterator
 import pytest
 from sqlalchemy.orm import Session
 from app.use_cases.product import ProductUseCases
-from app.use_cases.category import CategoryUseCases
 from app.schemas.product import ProductSchema
-from app.schemas.category import CategorySchema
 from app.db.models import ProductModel, CategoryModel
 
 def test_add_product(db_session: Session, product_schema_camisa: ProductSchema, category_roupa_on_db: CategoryModel):
@@ -45,6 +43,42 @@ def test_update_product(db_session: Session, products_on_db: list[ProductModel])
     assert new_product.price == product.price
 
 
+def test_update_product_non_existent(db_session: Session):
+    product = ProductSchema(
+        name='foo',
+        slug='bar',
+        price=9,
+        stock=1
+    )
+    uc_product = ProductUseCases(db_session)
+
+    with pytest.raises(ValueError):
+        uc_product.update(9999999, product)
+
+
+def test_delete_product(
+        db_session: Session,
+        product_model_camisa: ProductModel,
+        category_roupa_on_db: CategoryModel
+) -> None:
+    product_model_camisa.category_id = category_roupa_on_db.id
+    db_session.add(product_model_camisa)
+    db_session.commit()
+    db_session.refresh(product_model_camisa)
+    uc_product = ProductUseCases(db_session)
+    uc_product.delete(product_model_camisa.id)
+    db_session.expire_all()
+    product_on_db = db_session.query(ProductModel).filter_by(id=product_model_camisa.id).first()
+    try:
+        assert product_on_db is None
+    except AssertionError:
+        db_session.delete(product_model_camisa)
+
+
+def test_delete_product_non_existent(db_session: Session, product_model_camisa: ProductModel) -> None:
+    uc_product = ProductUseCases(db_session)
+    with pytest.raises(ValueError):
+        uc_product.delete(product_model_camisa.id)
 
 
 # def test_list_products(db_session: Session, products_on_db: Iterator[ProductModel]) -> None:

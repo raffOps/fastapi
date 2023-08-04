@@ -4,6 +4,7 @@ from app.db.models import CategoryModel
 from app.schemas.category import CategorySchema, CategoryOutputSchema
 from sqlalchemy.orm import Session
 
+
 class CategoryUseCases:
     def __init__(self, db_session: Session):
         self.db_session = db_session
@@ -20,14 +21,17 @@ class CategoryUseCases:
             for category in categories
         ]
 
-    def serialize_category(self, category: CategoryModel) -> CategoryOutputSchema:
+    def serialize_category(
+            self,
+            category: CategoryModel
+    ) -> CategoryOutputSchema:
         return CategoryOutputSchema(**category.__dict__)
 
     def delete_category(self, id: int):
         if (
-            category := self.db_session.query(CategoryModel)
-            .filter_by(id=id)
-            .first()
+                category := self.db_session.query(CategoryModel)
+                        .filter_by(id=id)
+                        .first()
         ):
             self.db_session.delete(category)
             self.db_session.commit()

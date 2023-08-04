@@ -11,12 +11,14 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 from app.db.base import Base
 
+
 class CategoryModel(Base):
     __tablename__ = 'category'
     id = Column('id', Integer, primary_key=True, autoincrement=True)
     name = Column('name', String, nullable=False)
     slug = Column('slug', String, nullable=False)
     product = relationship('ProductModel', back_populates='category')
+
 
 class ProductModel(Base):
     __tablename__ = 'product'

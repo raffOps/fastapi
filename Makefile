@@ -9,4 +9,4 @@ migration:
 	docker compose run --user 1000 app sh -c 'alembic upgrade head'
 
 test:
-	docker compose run app sh -c 'pytest $(PARAMETER) --log-cli-level=DEBUG --capture=tee-sys'
+	docker compose run app sh -c 'pytest $(PARAMETER) --log-cli-level=INFO --capture=tee-sys'

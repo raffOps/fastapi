@@ -29,5 +29,16 @@ def update_product(
         return Response(status_code=status.HTTP_200_OK)
     except ValueError:
         return Response(status_code=status.HTTP_404_NOT_FOUND)
-    except Exception:
-        return Response(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@product_router.delete('{id}')
+def delete(
+        id: int,
+        db_session: Session = Depends(get_db_session)
+) -> Response:
+    uc = ProductUseCases(db_session=db_session)
+    try:
+        uc.delete(id)
+        return Response(status_code=status.HTTP_200_OK)
+    except ValueError:
+        return Response(status_code=status.HTTP_404_NOT_FOUND)
+

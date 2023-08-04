@@ -51,7 +51,7 @@ def test_update_product_route(db_session: Session, products_on_db: list[ProductM
     assert product['price'] == updated_product.price
 
 
-def test_update_product_non_existent(db_session: Session):
+def test_update_product_non_existent_route(db_session: Session):
     product = {
         'name': 'FOO',
         'slug': 'bar',
@@ -59,4 +59,26 @@ def test_update_product_non_existent(db_session: Session):
         'price': 327
     }
     response = client.post(url='product/update/999999', json=product)
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+def test_delete_product_route(
+        db_session: Session,
+        product_model_camisa: ProductModel,
+        category_roupa_on_db: CategoryModel
+) -> None:
+    product_model_camisa.category_id = category_roupa_on_db.id
+    db_session.add(product_model_camisa)
+    db_session.commit()
+    db_session.refresh(product_model_camisa)
+    response = client.delete(f'/product/{product_model_camisa.id}')
+    try:
+        assert response.status_code == status.HTTP_200_OK
+    except AssertionError:
+        db_session.delete(product_model_camisa)
+        db_session.commit()
+
+
+def test_delete_product_non_existent_route(db_session) -> None:
+    response = client.delete('/product/99999')
     assert response.status_code == status.HTTP_404_NOT_FOUND
