@@ -1,4 +1,6 @@
-from sqlalchemy.orm import Session
+from typing import List, Type
+
+from sqlalchemy.orm import Session, exc
 from app.schemas.product import ProductSchema, ProductOutputSchema
 from app.db.models import ProductModel, CategoryModel
 
@@ -19,15 +21,10 @@ class ProductUseCases:
         self.db_session.commit()
 
     @staticmethod
-    def serialize_product(product: ProductModel) -> ProductOutputSchema:
-        return ProductOutputSchema(**product.__dict__)
-
-    def list_products(self) -> list[ProductOutputSchema]:
-        products = self.db_session.query(ProductModel).all()
-        return [
-            self.serialize_product(product)
-            for product in products
-        ]
+    def serialize_product(product: Type[ProductModel]) -> ProductOutputSchema:
+        product_dict = product.__dict__
+        product_dict['category'] = product.category.__dict__
+        return ProductOutputSchema(**product_dict)
 
     def update(self, id: int, product: ProductSchema):
         if not (
@@ -49,3 +46,23 @@ class ProductUseCases:
             raise ValueError(f'Product with id {id} not found')
         self.db_session.delete(product)
         self.db_session.commit()
+
+
+    def list_products(self) -> list[ProductOutputSchema]:
+        products =  self.db_session.query(ProductModel).all()
+
+        return [
+            self.serialize_product(product)
+            for product in products
+        ]
+
+
+    def search(self, key: str, value: str) -> Type[ProductModel]:
+        if(
+            product := self.db_session.\
+            query(ProductModel).\
+            filter_by(**{key: value}).first()
+        ) is None:
+            raise exc.NoResultFound()
+        else:
+            return product

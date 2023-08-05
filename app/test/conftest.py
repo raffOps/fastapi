@@ -90,6 +90,7 @@ def categories_on_db(
 def category_roupa_on_db(db_session, category_roupa: CategoryModel):
     db_session.add(category_roupa)
     db_session.commit()
+    db_session.refresh(category_roupa)
     yield category_roupa
     db_session.delete(category_roupa)
     db_session.commit()
@@ -146,6 +147,8 @@ def products_on_db(
         db_session.add(product)
         db_session.commit()
         db_session.refresh(product)
+
+    db_session.expire_all()
 
     yield products_list
     for product in products_list:

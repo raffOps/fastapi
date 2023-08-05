@@ -79,6 +79,20 @@ def test_delete_product_route(
         db_session.commit()
 
 
-def test_delete_product_non_existent_route(db_session) -> None:
+def test_delete_product_non_existent_route(db_session: Session) -> None:
     response = client.delete('/product/99999')
     assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+def test_list_product_route(
+        products_on_db: list[ProductModel]
+) -> None:
+    response = client.get('/product/list')
+    products_listed = response.json()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(products_listed) == 2
+    assert products_on_db[0].id == products_listed[0]['id']
+    assert products_on_db[0].name == products_listed[0]['name']
+    assert products_on_db[0].stock == products_listed[0]['stock']
+    assert products_on_db[0].category.name == products_listed[0]['category']['name']

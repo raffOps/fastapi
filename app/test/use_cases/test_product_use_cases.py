@@ -1,8 +1,5 @@
-import random
-import sys
-from typing import Iterator
-
 import pytest
+from sqlalchemy.exc import InvalidRequestError, NoResultFound
 from sqlalchemy.orm import Session
 from app.use_cases.product import ProductUseCases
 from app.schemas.product import ProductSchema
@@ -81,16 +78,56 @@ def test_delete_product_non_existent(db_session: Session, product_model_camisa: 
         uc_product.delete(product_model_camisa.id)
 
 
-# def test_list_products(db_session: Session, products_on_db: Iterator[ProductModel]) -> None:
-#     uc_product = ProductUseCases(db_session)
-#     products = uc_product.list_products()
-#
-#     assert products_on_db[0].name == products[0].name
-#     assert products_on_db[0].id == products[0].id
-#     assert products_on_db[0].price == products[0].price
-#     assert products_on_db[0].category_id == products[0].category_id
-#
-#     assert products_on_db[1].name == products[1].name
-#     assert products_on_db[1].id == products[1].id
-#     assert products_on_db[1].price == products[1].price
-#     assert products_on_db[1].category_id == products[1].category_id
+def test_list_products(db_session: Session, products_on_db: list[ProductModel]) -> None:
+    uc_product = ProductUseCases(db_session)
+
+    products_list = uc_product.list_products()
+    db_session.expire_all()
+
+    assert products_list is not None
+    assert products_on_db[0].name == products_list[0].name
+    assert products_on_db[0].id == products_list[0].id
+    assert products_on_db[0].price == products_list[0].price
+    assert products_on_db[0].category_id == products_list[0].category.id
+
+    assert products_on_db[1].name == products_list[1].name
+    assert products_on_db[1].id == products_list[1].id
+    assert products_on_db[1].price == products_list[1].price
+    assert products_on_db[1].category_id == products_list[1].category.id
+
+
+def test_search_product_by_name(
+        db_session: Session,
+        products_on_db: list[ProductModel]
+) -> None:
+    uc = ProductUseCases(db_session)
+    search_string = {'name': 'Camisa Nike'}
+    product = uc.search(key='name', value='Camisa Nike')
+    assert product is not None
+    assert product == products_on_db[0]
+
+
+def test_search_product_by_slug(
+        db_session: Session,
+        products_on_db: list[ProductModel]
+) -> None:
+    uc = ProductUseCases(db_session)
+    product = uc.search(key='slug', value='camisa-nike')
+    assert product is not None
+    assert product == products_on_db[0]
+
+
+def test_search_product_by_non_existent_value(
+        db_session: Session,
+        products_on_db: list[ProductModel]
+) -> None:
+    uc = ProductUseCases(db_session)
+    with pytest.raises(NoResultFound):
+        uc.search(key='name', value='bar')
+
+def test_search_product_by_invalid_key(
+        db_session: Session
+) -> None:
+    uc = ProductUseCases(db_session)
+    with pytest.raises(InvalidRequestError):
+        uc.search(key='foo', value='bar')
