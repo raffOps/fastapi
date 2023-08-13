@@ -1,9 +1,9 @@
 from pydantic import field_validator, Field
 
-from app.schemas.base import CustomBaseModel
+from app.schemas.base import CustomBaseSchema
 
 
-class CategorySchema(CustomBaseModel):
+class CategorySchema(CustomBaseSchema):
     name: str
     slug: str = Field(pattern='^([a-z]|-|_)+$', min_length=3, max_length=256)
 

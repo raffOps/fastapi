@@ -96,3 +96,33 @@ def test_list_product_route(
     assert products_on_db[0].name == products_listed[0]['name']
     assert products_on_db[0].stock == products_listed[0]['stock']
     assert products_on_db[0].category.name == products_listed[0]['category']['name']
+
+def test_search_product_existent_by_name_route(
+        products_on_db: list[ProductModel]
+) -> None:
+    key = 'name'
+    value = products_on_db[0].name
+    response = client.get(f'/product/search/?key={key}&value={value}')
+    data = response.json()
+    assert data['id'] == products_on_db[0].id
+
+def test_search_product_existent_by_slug_route(
+        products_on_db: list[ProductModel]
+) -> None:
+    key = 'slug'
+    value = products_on_db[0].slug
+    response = client.get(f'/product/search/?key={key}&value={value}')
+    data = response.json()
+    assert data['id'] == products_on_db[0].id
+
+def test_search_product_existent_by_invalid_key() -> None:
+    key = 'slugdfds'
+    value = 'foo'
+    response = client.get(f'/product/search/?key={key}&value={value}')
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+def test_search_product_existent_by_invalid_value() -> None:
+    key = 'slug'
+    value = 'foo'
+    response = client.get(f'/product/search/?key={key}&value={value}')
+    assert response.status_code == status.HTTP_404_NOT_FOUND

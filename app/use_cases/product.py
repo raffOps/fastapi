@@ -57,12 +57,11 @@ class ProductUseCases:
         ]
 
 
-    def search(self, key: str, value: str) -> Type[ProductModel]:
-        if(
+    def search(self, key: str, value: str) -> ProductOutputSchema:
+        if (
             product := self.db_session.\
-            query(ProductModel).\
-            filter_by(**{key: value}).first()
+                query(ProductModel).\
+                filter_by(**{key: value}).first()
         ) is None:
-            raise exc.NoResultFound()
-        else:
-            return product
+            raise ValueError(f'Product with {key}:{value} not found')
+        return self.serialize_product(product)

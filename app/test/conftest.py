@@ -1,12 +1,16 @@
 from typing import Any, Iterator
 
 import pytest
+from passlib.context import CryptContext
 from sqlalchemy.orm import Session as sqlalchemy_session
 
 from app.schemas.category import CategorySchema
 from app.schemas.product import ProductSchema
-from app.db.models import CategoryModel, ProductModel
+from app.schemas.user import UserSchema
+from app.db.models import CategoryModel, ProductModel, UserModel
 from app.db.connection import Session
+
+crypt_context = CryptContext(schemes=['sha256_crypt'])
 
 @pytest.fixture()
 def db_session() -> Any:
@@ -154,3 +158,17 @@ def products_on_db(
     for product in products_list:
         db_session.delete(product)
         db_session.commit()
+
+
+@pytest.fixture()
+def user_on_db(db_session: Session) -> UserModel:
+    user = UserModel(
+        username='foo',
+        password=crypt_context.hash('bar')
+    )
+    db_session.add(user)
+    db_session.commit()
+    db_session.refresh(user)
+    yield user
+    db_session.delete(user)
+    db_session.commit()

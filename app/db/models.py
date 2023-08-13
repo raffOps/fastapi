@@ -31,3 +31,9 @@ class ProductModel(Base):
     updated_at = Column('updated_at', DateTime, onupdate=datetime.now())
     category_id = Column('category_id', ForeignKey('category.id'), nullable=False)
     category = relationship('CategoryModel', back_populates='product')
+
+class UserModel(Base):
+    __tablename__ = 'User'
+    id = Column('id', Integer, primary_key=True, autoincrement=True)
+    username = Column('username', String, nullable=False, unique=True)
+    password = Column('password', String, nullable=False)

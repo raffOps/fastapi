@@ -1,8 +1,8 @@
-from pydantic import Field, field_validator
-from app.schemas.base import CustomBaseModel
+from pydantic import Field
+from app.schemas.base import CustomBaseSchema
 from app.schemas.category import CategoryOutputSchema
 
-class ProductSchema(CustomBaseModel):
+class ProductSchema(CustomBaseSchema):
     name: str
     slug: str = Field(pattern='^([a-z]|-|_)+$', min_length=3, max_length=256)
     price: float = Field(gt=0)
