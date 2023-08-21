@@ -4,11 +4,15 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, Response, status
 from app.schemas.category import CategorySchema, CategoryOutputSchema
 from app.db.models import CategoryModel
-from app.routes.deps import get_db_session
+from app.routes.deps import get_db_session, auth
 from app.use_cases.category import CategoryUseCases
 
 
-category_router = APIRouter(prefix='/category', tags=['Category'])
+category_router = APIRouter(
+    prefix='/category',
+    tags=['Category'],
+    dependencies=[Depends(auth)]
+)
 
 @category_router.post('/add',
                       status_code=status.HTTP_201_CREATED,

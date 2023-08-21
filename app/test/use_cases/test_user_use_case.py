@@ -84,7 +84,7 @@ def test_verify_token_expired(db_session: Session, user_on_db: UserModel):
         uc.verify_token(token=access_token)
 
 
-def test_verify_username_invalid(db_session: Session):
+def test_verify_token_username_invalid(db_session: Session):
     uc = UserUseCases(db_session)
     data = {
         'sub': 'foooooo',

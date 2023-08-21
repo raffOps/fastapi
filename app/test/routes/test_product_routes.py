@@ -7,10 +7,11 @@ import logging
 
 from app.main import app
 from app.db.models import ProductModel, CategoryModel
-from app.schemas.product import ProductOutputSchema
 
 
 client = TestClient(app)
+headers = {'Authorization': 'Bearer token'}
+client.headers = headers
 
 LOGGER = logging.getLogger(__name__)
 

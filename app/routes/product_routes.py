@@ -6,9 +6,13 @@ from fastapi import APIRouter, Depends, status, HTTPException
 
 from app.use_cases.product import ProductUseCases
 from app.schemas.product import ProductSchema, ProductOutputSchema
-from app.routes.deps import get_db_session
+from app.routes.deps import get_db_session, auth
 
-product_router = APIRouter(prefix='/product', tags=['Product'])
+product_router = APIRouter(
+    prefix='/product',
+    tags=['Product'],
+    dependencies=[Depends(auth)]
+)
 
 @product_router.post('/add', status_code=status.HTTP_201_CREATED)
 def add_product(
@@ -21,7 +25,10 @@ def add_product(
     try:
         uc.add(product, category_slug)
     except ValueError as e:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND) from e
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=repr(e)
+            ) from e
 
 
 @product_router.post('/update/{id}', status_code=status.HTTP_200_OK)

@@ -33,4 +33,7 @@ def login(
     try:
         return uc.login(user, expires_in=60)
     except ValueError as e:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED) from e
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=repr(e)
+        ) from e

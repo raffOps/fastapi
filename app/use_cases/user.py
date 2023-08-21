@@ -1,4 +1,6 @@
 from datetime import datetime, timedelta, timezone
+from typing import Type
+
 from decouple import config
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
@@ -28,10 +30,13 @@ class UserUseCases:
             raise ValueError('Username already exists') from e
 
 
+    def _get_user(self, username: str) -> Type[UserModel] | None:
+        return self.db_session.query(UserModel).\
+            filter_by(username=username).first()
+
+
     def login(self, user: UserSchema, expires_in: int = 30):
-        if not (user_on_db :=
-                self.db_session.query(UserModel).
-                    filter_by(username=user.username).first()):
+        if not (user_on_db := self._get_user(user.username)):
             raise ValueError('Invalid Username')
         if not crypt_context.verify(user.password, user_on_db.password):
             raise ValueError('Invalid password')
@@ -44,8 +49,8 @@ class UserUseCases:
         access_token = jwt.encode(data, key=SECRET_KEY, algorithm=ALGORITHM)
         return TokenData(access_token=access_token, expires_at=expires_at)
 
+
     def verify_token(self, token: str):
         data = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        if not (user_on_db := self.db_session.query(UserModel).\
-            filter_by(username=data['sub']).first()):
+        if not self._get_user(data['sub']):
             raise JWTError

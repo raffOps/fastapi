@@ -13,6 +13,9 @@ from app.db.models import CategoryModel
 from app.schemas.category import CategoryOutputSchema
 
 client = TestClient(app)
+headers = {'Authorization': 'Bearer token'}
+client.headers = headers
+
 
 def test_add_category_route(db_session: Session, body_roupa: dict[str, Any]):
     response = client.post(
