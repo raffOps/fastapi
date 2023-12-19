@@ -4,13 +4,13 @@ import pytest
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session as sqlalchemy_session
 
+from app.db.connection import Session
+from app.db.models import CategoryModel, ProductModel, UserModel
 from app.schemas.category import CategorySchema
 from app.schemas.product import ProductSchema
-from app.schemas.user import UserSchema
-from app.db.models import CategoryModel, ProductModel, UserModel
-from app.db.connection import Session
 
 crypt_context = CryptContext(schemes=['sha256_crypt'])
+
 
 @pytest.fixture()
 def db_session() -> Any:
@@ -19,6 +19,7 @@ def db_session() -> Any:
         yield session
     finally:
         session.close()
+
 
 @pytest.fixture()
 def category_schema_roupa() -> CategorySchema:
@@ -34,6 +35,7 @@ def category_roupa() -> CategoryModel:
         name='Roupa',
         slug='roupa'
     )
+
 
 @pytest.fixture()
 def category_calcado() -> CategoryModel:
@@ -58,6 +60,7 @@ def body_roupa() -> dict[str, Any]:
         'slug': 'roupa'
     }
 
+
 @pytest.fixture()
 def categories_list(
         category_roupa: CategoryModel,
@@ -69,6 +72,7 @@ def categories_list(
         category_calcado,
         category_infantil
     ]
+
 
 @pytest.fixture()
 def categories_on_db(
@@ -99,6 +103,7 @@ def category_roupa_on_db(db_session, category_roupa: CategoryModel):
     db_session.delete(category_roupa)
     db_session.commit()
 
+
 @pytest.fixture()
 def product_json_camisa(categories_on_db: list[CategoryModel]) -> dict[str, Any]:
     return {
@@ -110,6 +115,8 @@ def product_json_camisa(categories_on_db: list[CategoryModel]) -> dict[str, Any]
             'price': 4
         }
     }
+
+
 @pytest.fixture()
 def product_schema_camisa() -> ProductSchema:
     return ProductSchema(
@@ -118,6 +125,8 @@ def product_schema_camisa() -> ProductSchema:
         stock=1,
         price=1.99
     )
+
+
 @pytest.fixture()
 def product_model_camisa() -> ProductModel:
     return ProductModel(
@@ -127,6 +136,7 @@ def product_model_camisa() -> ProductModel:
         price=1.99
     )
 
+
 @pytest.fixture()
 def product_model_calcado() -> ProductModel:
     return ProductModel(
@@ -135,6 +145,7 @@ def product_model_calcado() -> ProductModel:
         stock=1,
         price=1.99
     )
+
 
 @pytest.fixture()
 def products_on_db(

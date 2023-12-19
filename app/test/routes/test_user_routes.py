@@ -1,14 +1,15 @@
 import logging
 
-from fastapi.testclient import TestClient
 from fastapi import status
+from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
-from app.db.models import UserModel
 
+from app.db.models import UserModel
 from app.main import app
 
 client = TestClient(app)
 LOGGER = logging.getLogger(__name__)
+
 
 def test_register_user_route(db_session: Session):
     user = {

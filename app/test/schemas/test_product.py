@@ -45,6 +45,7 @@ def test_product_schema_invalid_stock():
             stock='3,0'
         )
 
+
 def test_product_schema_invalid_price():
     with pytest.raises(ValueError):
         product = ProductSchema(
@@ -53,7 +54,6 @@ def test_product_schema_invalid_price():
             price='22,9',
             stock=1
         )
-
 
     with pytest.raises(ValidationError):
         product = ProductSchema(

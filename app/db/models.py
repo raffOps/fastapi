@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from sqlalchemy import (
     Column,
     Integer,
@@ -9,6 +10,7 @@ from sqlalchemy import (
     func
 )
 from sqlalchemy.orm import relationship
+
 from app.db.base import Base
 
 
@@ -31,6 +33,7 @@ class ProductModel(Base):
     updated_at = Column('updated_at', DateTime, onupdate=datetime.now())
     category_id = Column('category_id', ForeignKey('category.id'), nullable=False)
     category = relationship('CategoryModel', back_populates='product')
+
 
 class UserModel(Base):
     __tablename__ = 'User'

@@ -1,9 +1,11 @@
 from fastapi import FastAPI
+
 from app.routes.category_routes import category_router
 from app.routes.product_routes import product_router
 from app.routes.user_routes import user_routes
 
 app = FastAPI()
+
 
 @app.get("/health-check")
 async def health_check():

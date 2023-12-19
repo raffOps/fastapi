@@ -2,16 +2,18 @@ from datetime import datetime, timedelta, timezone
 from typing import Type
 
 from decouple import config
-from sqlalchemy.orm import Session
-from sqlalchemy.exc import IntegrityError
-from passlib.context import CryptContext
 from jose import jwt, JWTError
-from app.schemas.user import UserSchema, TokenData
+from passlib.context import CryptContext
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
+
 from app.db.models import UserModel
+from app.schemas.user import UserSchema, TokenData
 
 crypt_context = CryptContext(schemes=['sha256_crypt'])
-SECRET_KEY=config('SECRET_KEY')
-ALGORITHM=config('ALGORITHM')
+SECRET_KEY = config('SECRET_KEY')
+ALGORITHM = config('ALGORITHM')
+
 
 class UserUseCases:
     def __init__(self, db_session: Session):
@@ -29,11 +31,9 @@ class UserUseCases:
             self.db_session.rollback()
             raise ValueError('Username already exists') from e
 
-
     def _get_user(self, username: str) -> Type[UserModel] | None:
-        return self.db_session.query(UserModel).\
+        return self.db_session.query(UserModel). \
             filter_by(username=username).first()
-
 
     def login(self, user: UserSchema, expires_in: int = 30):
         if not (user_on_db := self._get_user(user.username)):
@@ -48,7 +48,6 @@ class UserUseCases:
         }
         access_token = jwt.encode(data, key=SECRET_KEY, algorithm=ALGORITHM)
         return TokenData(access_token=access_token, expires_at=expires_at)
-
 
     def verify_token(self, token: str):
         data = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])

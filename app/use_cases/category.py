@@ -1,8 +1,8 @@
 from sqlalchemy.exc import NoResultFound
+from sqlalchemy.orm import Session
 
 from app.db.models import CategoryModel
 from app.schemas.category import CategorySchema, CategoryOutputSchema
-from sqlalchemy.orm import Session
 
 
 class CategoryUseCases:

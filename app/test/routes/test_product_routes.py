@@ -1,19 +1,19 @@
+import logging
 from typing import Any
 
-from fastapi.testclient import TestClient
 from fastapi import status
+from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
-import logging
 
-from app.main import app
 from app.db.models import ProductModel, CategoryModel
-
+from app.main import app
 
 client = TestClient(app)
 headers = {'Authorization': 'Bearer token'}
 client.headers = headers
 
 LOGGER = logging.getLogger(__name__)
+
 
 def test_add_product_route(db_session: Session, product_json_camisa: dict[str, Any]):
     response = client.post(
@@ -26,6 +26,7 @@ def test_add_product_route(db_session: Session, product_json_camisa: dict[str, A
     db_session.delete(model)
     db_session.commit()
 
+
 def test_add_product_route_non_existent_category(db_session: Session, product_json_camisa: dict[str, Any]):
     product_json_camisa['category_slug'] = 'FOO'
     response = client.post(
@@ -34,8 +35,8 @@ def test_add_product_route_non_existent_category(db_session: Session, product_js
     )
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
-    
-    
+
+
 def test_update_product_route(db_session: Session, products_on_db: list[ProductModel]):
     product_on_db = products_on_db[0]
     product = {
@@ -98,6 +99,7 @@ def test_list_product_route(
     assert products_on_db[0].stock == products_listed[0]['stock']
     assert products_on_db[0].category.name == products_listed[0]['category']['name']
 
+
 def test_search_product_existent_by_name_route(
         products_on_db: list[ProductModel]
 ) -> None:
@@ -106,6 +108,7 @@ def test_search_product_existent_by_name_route(
     response = client.get(f'/product/search/?key={key}&value={value}')
     data = response.json()
     assert data['id'] == products_on_db[0].id
+
 
 def test_search_product_existent_by_slug_route(
         products_on_db: list[ProductModel]
@@ -116,11 +119,13 @@ def test_search_product_existent_by_slug_route(
     data = response.json()
     assert data['id'] == products_on_db[0].id
 
+
 def test_search_product_existent_by_invalid_key() -> None:
     key = 'slugdfds'
     value = 'foo'
     response = client.get(f'/product/search/?key={key}&value={value}')
     assert response.status_code == status.HTTP_404_NOT_FOUND
+
 
 def test_search_product_existent_by_invalid_value() -> None:
     key = 'slug'

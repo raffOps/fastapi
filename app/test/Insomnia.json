@@ -1,1 +1,932 @@
-{"_type":"export","__export_format":4,"__export_date":"2023-08-21T21:01:58.902Z","__export_source":"insomnia.desktop.app:v2023.5.5","resources":[{"_id":"req_17083740e616457f955141f7347fdea2","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692650138254,"created":1692649791894,"url":"{{ _.base_url }}/health-check","name":"Health Check","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{},"metaSortKey":-1692649791894,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"wrk_6e715d327c134e239e2793a1d92e6e27","parentId":null,"modified":1692651630052,"created":1692649673793,"name":"insominia.yaml","description":"","scope":"design","_type":"workspace"},{"_id":"req_de3f6aefad53471ea0d9f69713be8b07","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692650367963,"created":1692649791896,"url":"{{ _.base_url }}/category/add","name":"Add Category","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"name\": \"meia\",\n  \"slug\": \"meia\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json","id":"pair_18e8558e50c34382ab810865bb79e40f"},{"id":"pair_0eb576c931e14f1eac2cd356b3e99636","name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1MzU4NX0.Cp7_GsPiEpGF7RqsGBST0iK2xPv6QJ0r2D971ZNK6Jk","description":""}],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791896,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_8016655812bd4c1698923f407a27abca","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791897,"created":1692649791897,"url":"{{ _.base_url }}/category/list","name":"List Categories","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791897,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_b1c45e68aa504183bdc42ba1179721b3","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791898,"created":1692649791898,"url":"{{ _.base_url }}/category/delete/{{ _.id }}","name":"Delete Category","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791898,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_01d0c662d94f440babf840e4af952a80","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791899,"created":1692649791899,"url":"{{ _.base_url }}/product/add","name":"Add Product","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 0,\n  \"stock\": 0\n}"},"parameters":[{"name":"category_slug","disabled":false,"value":"string"}],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json"}],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791899,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_6dcdfc554c154ba7b44d66b073a7ef4d","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791900,"created":1692649791900,"url":"{{ _.base_url }}/product/update/{{ _.id }}","name":"Update Product","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 0,\n  \"stock\": 0\n}"},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json"}],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791900,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_931a7d390f6b4d63831e14a696e7f689","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791900,"created":1692649791900,"url":"{{ _.base_url }}/product{{ _.id }}","name":"Delete","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791900,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_47f2643b5b994830904246efeba35d6c","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791901,"created":1692649791901,"url":"{{ _.base_url }}/product/list","name":"List Products","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791901,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_c82d7178e8ec4ddbb5bb2336a984afa0","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791902,"created":1692649791902,"url":"{{ _.base_url }}/product/search","name":"Search","description":"","method":"GET","body":{},"parameters":[{"name":"key","disabled":false,"value":"string"},{"name":"value","disabled":false,"value":"string"}],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649791902,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_f7c3b3d880c84df0af4140447e0920b8","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649791903,"created":1692649791903,"url":"{{ _.base_url }}/users/register","name":"Register","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"username\": \"string\",\n  \"password\": \"string\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json"}],"authentication":{},"metaSortKey":-1692649791903,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_218c2e6e0538496bb2cd0ce8ca1a2932","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649983589,"created":1692649791904,"url":"http://127.0.0.1:8000/users/login","name":"Login","description":"","method":"POST","body":{"mimeType":"application/x-www-form-urlencoded","params":[{"id":"pair_6a1f1a7ea41d4c0390015af2bca391b7","name":"username","value":"rafa2","description":""},{"id":"pair_1be90536c37944e1b6ee5b089791bf06","name":"password","value":"1728","description":""}]},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/x-www-form-urlencoded"}],"authentication":{},"metaSortKey":-1692649791904,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_2688f12539e34f41915a4340e9eb99f3","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811044,"created":1692649811044,"url":"{{ _.base_url }}/health-check","name":"Health Check","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{},"metaSortKey":-1692649811044,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_22f92adfe75740f48cdb03154e459656","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692650732193,"created":1692649811045,"url":"{{ _.base_url }}/category/list","name":"List Categories","description":"","method":"GET","body":{},"parameters":[],"headers":[{"id":"pair_3c544392a4ef4b8f8a97368ca8552842","name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1NDIzNn0.7qA-KGpLYnRrWkHlROjmomzNf3NM6BIZH3F-KeinQYY","description":""}],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811045,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_f40444de55c24a78948ffbeeadf168af","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692650695653,"created":1692649811045,"url":"{{ _.base_url }}/category/add","name":"Add Category","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"name\": \"Meia\",\n  \"slug\": \"meia\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json","id":"pair_4ef59528015441768d7ddd98208063a4"},{"id":"pair_a62444263d234d7e81b4f555ac1d0663","name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1NDIzNn0.7qA-KGpLYnRrWkHlROjmomzNf3NM6BIZH3F-KeinQYY","description":""}],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811045,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_156b1d3098a64223819c4f337cf06441","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811046,"created":1692649811046,"url":"{{ _.base_url }}/category/delete/{{ _.id }}","name":"Delete Category","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811046,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_98c7e6f1ff454b8c8e6c6730af91bcfa","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692651506829,"created":1692649811047,"url":"{{ _.base_url }}/product/add","name":"Add Product","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"name\": \"Meia da barbie\",\n  \"slug\": \"meiabarbie\",\n  \"price\": 1,\n  \"stock\": 2\n}"},"parameters":[{"name":"category_slug","disabled":false,"value":"meia","id":"pair_32a9d66f2a4f4d09924114edb3316266"},{"id":"pair_64c29a3825d14d59bc67526738b3107d","name":"","value":"","description":""}],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json"},{"id":"pair_49813c70b55741bb895ff7ff3dab945b","name":"","value":"","description":""}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1NDIzNn0.7qA-KGpLYnRrWkHlROjmomzNf3NM6BIZH3F-KeinQYY","prefix":"bearer"},"metaSortKey":-1692649811047,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_6b1c3c643d6243abafec068d05eb932b","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811048,"created":1692649811048,"url":"{{ _.base_url }}/product/update/{{ _.id }}","name":"Update Product","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 0,\n  \"stock\": 0\n}"},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json"}],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811048,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_98fa6ec0a21b41faa5103245db2ee714","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811048,"created":1692649811048,"url":"{{ _.base_url }}/product{{ _.id }}","name":"Delete","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811048,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_9ffaf611b1b34438b33944c449014680","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811049,"created":1692649811049,"url":"{{ _.base_url }}/product/search","name":"Search","description":"","method":"GET","body":{},"parameters":[{"name":"key","disabled":false,"value":"string"},{"name":"value","disabled":false,"value":"string"}],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811049,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_e7821486c338499c8343d0515e2a1c79","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811049,"created":1692649811049,"url":"{{ _.base_url }}/product/list","name":"List Products","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"clientId":"{{ _.oauth2ClientId }}","grantType":"password","scope":"","type":"oauth2","clientSecret":"{{ _.oauth2ClientSecret }}","username":"{{ _.oauth2Username }}","password":"{{ _.oauth2Password }}","accessTokenUrl":"/users/login"},"metaSortKey":-1692649811049,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_55f286180c6d4f788f7dd22ab485c77c","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649811050,"created":1692649811050,"url":"{{ _.base_url }}/users/register","name":"Register","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n  \"username\": \"string\",\n  \"password\": \"string\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","disabled":false,"value":"application/json"}],"authentication":{},"metaSortKey":-1692649811050,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_540474f092f74d0cba940a7b65539dca","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692650625512,"created":1692649811051,"url":"{{ _.base_url }}/users/login","name":"Login","description":"","method":"POST","body":{"mimeType":"application/x-www-form-urlencoded","params":[{"id":"pair_bfafd4b21a2c415c821ba8e6b40274da","name":"username","value":"rafa2","description":""},{"id":"pair_ea5ed5c1d12b4ed8bed115c8511b4cec","name":"password","value":"1728","description":""}]},"parameters":[],"headers":[{"name":"Content-Type","value":"application/x-www-form-urlencoded"}],"authentication":{},"metaSortKey":-1692649811051,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"env_f27fd91974a033c3481cd33224913fbc803f0896","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649673798,"created":1692649673798,"name":"Base Environment","data":{},"dataPropertyOrder":null,"color":null,"isPrivate":false,"metaSortKey":1692649673798,"_type":"environment"},{"_id":"jar_f27fd91974a033c3481cd33224913fbc803f0896","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692649673800,"created":1692649673800,"name":"Default Jar","cookies":[],"_type":"cookie_jar"},{"_id":"spc_e8856b8e653c49828b19df5a6dc0a881","parentId":"wrk_6e715d327c134e239e2793a1d92e6e27","modified":1692651630051,"created":1692649673796,"fileName":"insominia.yaml","contents":"{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"FastAPI\",\"version\":\"0.1.0\"},\"paths\":{\"/health-check\":{\"get\":{\"summary\":\"Health Check\",\"operationId\":\"health_check_health_check_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}}}}},\"/category/add\":{\"post\":{\"tags\":[\"Category\"],\"summary\":\"Add Category\",\"description\":\"Add new category\",\"operationId\":\"add_category_category_add_post\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/CategorySchema\"}}},\"required\":true},\"responses\":{\"201\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}},\"security\":[{\"OAuth2PasswordBearer\":[]}]}},\"/category/list\":{\"get\":{\"tags\":[\"Category\"],\"summary\":\"List Categories\",\"operationId\":\"list_categories_category_list_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/CategoryOutputSchema\"},\"type\":\"array\",\"title\":\"Response List Categories Category List Get\"}}}}},\"security\":[{\"OAuth2PasswordBearer\":[]}]}},\"/category/delete/{id}\":{\"delete\":{\"tags\":[\"Category\"],\"summary\":\"Delete Category\",\"operationId\":\"delete_category_category_delete__id__delete\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"id\",\"in\":\"path\",\"required\":true,\"schema\":{\"type\":\"integer\",\"title\":\"Id\"}}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product/add\":{\"post\":{\"tags\":[\"Product\"],\"summary\":\"Add Product\",\"operationId\":\"add_product_product_add_post\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"category_slug\",\"in\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Category Slug\"}}],\"requestBody\":{\"required\":true,\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/ProductSchema\"}}}},\"responses\":{\"201\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product/update/{id}\":{\"post\":{\"tags\":[\"Product\"],\"summary\":\"Update Product\",\"operationId\":\"update_product_product_update__id__post\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"id\",\"in\":\"path\",\"required\":true,\"schema\":{\"type\":\"integer\",\"title\":\"Id\"}}],\"requestBody\":{\"required\":true,\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/ProductSchema\"}}}},\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product{id}\":{\"delete\":{\"tags\":[\"Product\"],\"summary\":\"Delete\",\"operationId\":\"delete_product_id__delete\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"id\",\"in\":\"path\",\"required\":true,\"schema\":{\"type\":\"integer\",\"title\":\"Id\"}}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product/list\":{\"get\":{\"tags\":[\"Product\"],\"summary\":\"List Products\",\"operationId\":\"list_products_product_list_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/ProductOutputSchema\"},\"type\":\"array\",\"title\":\"Response List Products Product List Get\"}}}}},\"security\":[{\"OAuth2PasswordBearer\":[]}]}},\"/product/search\":{\"get\":{\"tags\":[\"Product\"],\"summary\":\"Search\",\"operationId\":\"search_product_search_get\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"key\",\"in\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Key\"}},{\"name\":\"value\",\"in\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Value\"}}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/ProductOutputSchema\"}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/users/register\":{\"post\":{\"tags\":[\"User\"],\"summary\":\"Register\",\"description\":\"Register new user\",\"operationId\":\"register_users_register_post\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/UserSchema\"}}},\"required\":true},\"responses\":{\"201\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/users/login\":{\"post\":{\"tags\":[\"User\"],\"summary\":\"Login\",\"operationId\":\"login_users_login_post\",\"requestBody\":{\"content\":{\"application/x-www-form-urlencoded\":{\"schema\":{\"$ref\":\"#/components/schemas/Body_login_users_login_post\"}}},\"required\":true},\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}}},\"components\":{\"schemas\":{\"Body_login_users_login_post\":{\"properties\":{\"grant_type\":{\"anyOf\":[{\"type\":\"string\",\"pattern\":\"password\"},{\"type\":\"null\"}],\"title\":\"Grant Type\"},\"username\":{\"type\":\"string\",\"title\":\"Username\"},\"password\":{\"type\":\"string\",\"title\":\"Password\"},\"scope\":{\"type\":\"string\",\"title\":\"Scope\",\"default\":\"\"},\"client_id\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Client Id\"},\"client_secret\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Client Secret\"}},\"type\":\"object\",\"required\":[\"username\",\"password\"],\"title\":\"Body_login_users_login_post\"},\"CategoryOutputSchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"},\"id\":{\"type\":\"integer\",\"title\":\"Id\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\",\"id\"],\"title\":\"CategoryOutputSchema\"},\"CategorySchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\"],\"title\":\"CategorySchema\"},\"HTTPValidationError\":{\"properties\":{\"detail\":{\"items\":{\"$ref\":\"#/components/schemas/ValidationError\"},\"type\":\"array\",\"title\":\"Detail\"}},\"type\":\"object\",\"title\":\"HTTPValidationError\"},\"ProductOutputSchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"},\"price\":{\"type\":\"number\",\"exclusiveMinimum\":0.0,\"title\":\"Price\"},\"stock\":{\"type\":\"integer\",\"minimum\":0.0,\"title\":\"Stock\"},\"id\":{\"type\":\"integer\",\"title\":\"Id\"},\"category\":{\"$ref\":\"#/components/schemas/CategoryOutputSchema\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\",\"price\",\"stock\",\"id\",\"category\"],\"title\":\"ProductOutputSchema\"},\"ProductSchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"},\"price\":{\"type\":\"number\",\"exclusiveMinimum\":0.0,\"title\":\"Price\"},\"stock\":{\"type\":\"integer\",\"minimum\":0.0,\"title\":\"Stock\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\",\"price\",\"stock\"],\"title\":\"ProductSchema\"},\"UserSchema\":{\"properties\":{\"username\":{\"type\":\"string\",\"pattern\":\"^([a-z]|[A-Z]|[0-9]|-|_|@)+$\",\"title\":\"Username\"},\"password\":{\"type\":\"string\",\"title\":\"Password\"}},\"type\":\"object\",\"required\":[\"username\",\"password\"],\"title\":\"UserSchema\"},\"ValidationError\":{\"properties\":{\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"type\":\"array\",\"title\":\"Location\"},\"msg\":{\"type\":\"string\",\"title\":\"Message\"},\"type\":{\"type\":\"string\",\"title\":\"Error Type\"}},\"type\":\"object\",\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\"}},\"securitySchemes\":{\"OAuth2PasswordBearer\":{\"type\":\"oauth2\",\"flows\":{\"password\":{\"scopes\":{},\"tokenUrl\":\"/users/login\"}}}}}}","contentType":"yaml","_type":"api_spec"},{"_id":"env_6c0360b367be45ca905b445f6e599966","parentId":"env_f27fd91974a033c3481cd33224913fbc803f0896","modified":1692650633561,"created":1692649791892,"name":"OpenAPI env example.com","data":{"scheme":"http","base_path":"","host":"example.com","oauth2ClientId":"clientId","oauth2ClientSecret":"clientSecret","oauth2Username":"username","oauth2Password":"password","base_url":"http://127.0.0.1:8000"},"dataPropertyOrder":{"&":["scheme","base_path","host","oauth2ClientId","oauth2ClientSecret","oauth2Username","oauth2Password","base_url"]},"color":null,"isPrivate":false,"metaSortKey":1692649791892,"_type":"environment"},{"_id":"env_a5ad3edfd8dd4a799a579040e2e7fa45","parentId":"env_f27fd91974a033c3481cd33224913fbc803f0896","modified":1692649811043,"created":1692649811043,"name":"OpenAPI env example.com","data":{"scheme":"http","base_path":"","host":"example.com","oauth2ClientId":"clientId","oauth2ClientSecret":"clientSecret","oauth2Username":"username","oauth2Password":"password"},"dataPropertyOrder":null,"color":null,"isPrivate":false,"metaSortKey":1692649811043,"_type":"environment"}]}
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-08-21T21:01:58.902Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.5",
+  "resources": [
+    {
+      "_id": "req_17083740e616457f955141f7347fdea2",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692650138254,
+      "created": 1692649791894,
+      "url": "{{ _.base_url }}/health-check",
+      "name": "Health Check",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1692649791894,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "parentId": null,
+      "modified": 1692651630052,
+      "created": 1692649673793,
+      "name": "insominia.yaml",
+      "description": "",
+      "scope": "design",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_de3f6aefad53471ea0d9f69713be8b07",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692650367963,
+      "created": 1692649791896,
+      "url": "{{ _.base_url }}/category/add",
+      "name": "Add Category",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"meia\",\n  \"slug\": \"meia\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json",
+          "id": "pair_18e8558e50c34382ab810865bb79e40f"
+        },
+        {
+          "id": "pair_0eb576c931e14f1eac2cd356b3e99636",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1MzU4NX0.Cp7_GsPiEpGF7RqsGBST0iK2xPv6QJ0r2D971ZNK6Jk",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791896,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_8016655812bd4c1698923f407a27abca",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791897,
+      "created": 1692649791897,
+      "url": "{{ _.base_url }}/category/list",
+      "name": "List Categories",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791897,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b1c45e68aa504183bdc42ba1179721b3",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791898,
+      "created": 1692649791898,
+      "url": "{{ _.base_url }}/category/delete/{{ _.id }}",
+      "name": "Delete Category",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791898,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_01d0c662d94f440babf840e4af952a80",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791899,
+      "created": 1692649791899,
+      "url": "{{ _.base_url }}/product/add",
+      "name": "Add Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 0,\n  \"stock\": 0\n}"
+      },
+      "parameters": [
+        {
+          "name": "category_slug",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791899,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6dcdfc554c154ba7b44d66b073a7ef4d",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791900,
+      "created": 1692649791900,
+      "url": "{{ _.base_url }}/product/update/{{ _.id }}",
+      "name": "Update Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 0,\n  \"stock\": 0\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791900,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_931a7d390f6b4d63831e14a696e7f689",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791900,
+      "created": 1692649791900,
+      "url": "{{ _.base_url }}/product{{ _.id }}",
+      "name": "Delete",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791900,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_47f2643b5b994830904246efeba35d6c",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791901,
+      "created": 1692649791901,
+      "url": "{{ _.base_url }}/product/list",
+      "name": "List Products",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791901,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c82d7178e8ec4ddbb5bb2336a984afa0",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791902,
+      "created": 1692649791902,
+      "url": "{{ _.base_url }}/product/search",
+      "name": "Search",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "key",
+          "disabled": false,
+          "value": "string"
+        },
+        {
+          "name": "value",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649791902,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f7c3b3d880c84df0af4140447e0920b8",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649791903,
+      "created": 1692649791903,
+      "url": "{{ _.base_url }}/users/register",
+      "name": "Register",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"string\",\n  \"password\": \"string\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692649791903,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_218c2e6e0538496bb2cd0ce8ca1a2932",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649983589,
+      "created": 1692649791904,
+      "url": "http://127.0.0.1:8000/users/login",
+      "name": "Login",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/x-www-form-urlencoded",
+        "params": [
+          {
+            "id": "pair_6a1f1a7ea41d4c0390015af2bca391b7",
+            "name": "username",
+            "value": "rafa2",
+            "description": ""
+          },
+          {
+            "id": "pair_1be90536c37944e1b6ee5b089791bf06",
+            "name": "password",
+            "value": "1728",
+            "description": ""
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692649791904,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2688f12539e34f41915a4340e9eb99f3",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811044,
+      "created": 1692649811044,
+      "url": "{{ _.base_url }}/health-check",
+      "name": "Health Check",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1692649811044,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_22f92adfe75740f48cdb03154e459656",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692650732193,
+      "created": 1692649811045,
+      "url": "{{ _.base_url }}/category/list",
+      "name": "List Categories",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_3c544392a4ef4b8f8a97368ca8552842",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1NDIzNn0.7qA-KGpLYnRrWkHlROjmomzNf3NM6BIZH3F-KeinQYY",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811045,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f40444de55c24a78948ffbeeadf168af",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692650695653,
+      "created": 1692649811045,
+      "url": "{{ _.base_url }}/category/add",
+      "name": "Add Category",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Meia\",\n  \"slug\": \"meia\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json",
+          "id": "pair_4ef59528015441768d7ddd98208063a4"
+        },
+        {
+          "id": "pair_a62444263d234d7e81b4f555ac1d0663",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1NDIzNn0.7qA-KGpLYnRrWkHlROjmomzNf3NM6BIZH3F-KeinQYY",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811045,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_156b1d3098a64223819c4f337cf06441",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811046,
+      "created": 1692649811046,
+      "url": "{{ _.base_url }}/category/delete/{{ _.id }}",
+      "name": "Delete Category",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811046,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_98c7e6f1ff454b8c8e6c6730af91bcfa",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692651506829,
+      "created": 1692649811047,
+      "url": "{{ _.base_url }}/product/add",
+      "name": "Add Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Meia da barbie\",\n  \"slug\": \"meiabarbie\",\n  \"price\": 1,\n  \"stock\": 2\n}"
+      },
+      "parameters": [
+        {
+          "name": "category_slug",
+          "disabled": false,
+          "value": "meia",
+          "id": "pair_32a9d66f2a4f4d09924114edb3316266"
+        },
+        {
+          "id": "pair_64c29a3825d14d59bc67526738b3107d",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "id": "pair_49813c70b55741bb895ff7ff3dab945b",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWZhMiIsImV4cCI6MTY5MjY1NDIzNn0.7qA-KGpLYnRrWkHlROjmomzNf3NM6BIZH3F-KeinQYY",
+        "prefix": "bearer"
+      },
+      "metaSortKey": -1692649811047,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6b1c3c643d6243abafec068d05eb932b",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811048,
+      "created": 1692649811048,
+      "url": "{{ _.base_url }}/product/update/{{ _.id }}",
+      "name": "Update Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 0,\n  \"stock\": 0\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811048,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_98fa6ec0a21b41faa5103245db2ee714",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811048,
+      "created": 1692649811048,
+      "url": "{{ _.base_url }}/product{{ _.id }}",
+      "name": "Delete",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811048,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9ffaf611b1b34438b33944c449014680",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811049,
+      "created": 1692649811049,
+      "url": "{{ _.base_url }}/product/search",
+      "name": "Search",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "key",
+          "disabled": false,
+          "value": "string"
+        },
+        {
+          "name": "value",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811049,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e7821486c338499c8343d0515e2a1c79",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811049,
+      "created": 1692649811049,
+      "url": "{{ _.base_url }}/product/list",
+      "name": "List Products",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "clientId": "{{ _.oauth2ClientId }}",
+        "grantType": "password",
+        "scope": "",
+        "type": "oauth2",
+        "clientSecret": "{{ _.oauth2ClientSecret }}",
+        "username": "{{ _.oauth2Username }}",
+        "password": "{{ _.oauth2Password }}",
+        "accessTokenUrl": "/users/login"
+      },
+      "metaSortKey": -1692649811049,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_55f286180c6d4f788f7dd22ab485c77c",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649811050,
+      "created": 1692649811050,
+      "url": "{{ _.base_url }}/users/register",
+      "name": "Register",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"string\",\n  \"password\": \"string\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692649811050,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_540474f092f74d0cba940a7b65539dca",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692650625512,
+      "created": 1692649811051,
+      "url": "{{ _.base_url }}/users/login",
+      "name": "Login",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/x-www-form-urlencoded",
+        "params": [
+          {
+            "id": "pair_bfafd4b21a2c415c821ba8e6b40274da",
+            "name": "username",
+            "value": "rafa2",
+            "description": ""
+          },
+          {
+            "id": "pair_ea5ed5c1d12b4ed8bed115c8511b4cec",
+            "name": "password",
+            "value": "1728",
+            "description": ""
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1692649811051,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_f27fd91974a033c3481cd33224913fbc803f0896",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649673798,
+      "created": 1692649673798,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1692649673798,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_f27fd91974a033c3481cd33224913fbc803f0896",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692649673800,
+      "created": 1692649673800,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_e8856b8e653c49828b19df5a6dc0a881",
+      "parentId": "wrk_6e715d327c134e239e2793a1d92e6e27",
+      "modified": 1692651630051,
+      "created": 1692649673796,
+      "fileName": "insominia.yaml",
+      "contents": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"FastAPI\",\"version\":\"0.1.0\"},\"paths\":{\"/health-check\":{\"get\":{\"summary\":\"Health Check\",\"operationId\":\"health_check_health_check_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}}}}},\"/category/add\":{\"post\":{\"tags\":[\"Category\"],\"summary\":\"Add Category\",\"description\":\"Add new category\",\"operationId\":\"add_category_category_add_post\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/CategorySchema\"}}},\"required\":true},\"responses\":{\"201\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}},\"security\":[{\"OAuth2PasswordBearer\":[]}]}},\"/category/list\":{\"get\":{\"tags\":[\"Category\"],\"summary\":\"List Categories\",\"operationId\":\"list_categories_category_list_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/CategoryOutputSchema\"},\"type\":\"array\",\"title\":\"Response List Categories Category List Get\"}}}}},\"security\":[{\"OAuth2PasswordBearer\":[]}]}},\"/category/delete/{id}\":{\"delete\":{\"tags\":[\"Category\"],\"summary\":\"Delete Category\",\"operationId\":\"delete_category_category_delete__id__delete\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"id\",\"in\":\"path\",\"required\":true,\"schema\":{\"type\":\"integer\",\"title\":\"Id\"}}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product/add\":{\"post\":{\"tags\":[\"Product\"],\"summary\":\"Add Product\",\"operationId\":\"add_product_product_add_post\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"category_slug\",\"in\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Category Slug\"}}],\"requestBody\":{\"required\":true,\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/ProductSchema\"}}}},\"responses\":{\"201\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product/update/{id}\":{\"post\":{\"tags\":[\"Product\"],\"summary\":\"Update Product\",\"operationId\":\"update_product_product_update__id__post\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"id\",\"in\":\"path\",\"required\":true,\"schema\":{\"type\":\"integer\",\"title\":\"Id\"}}],\"requestBody\":{\"required\":true,\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/ProductSchema\"}}}},\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product{id}\":{\"delete\":{\"tags\":[\"Product\"],\"summary\":\"Delete\",\"operationId\":\"delete_product_id__delete\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"id\",\"in\":\"path\",\"required\":true,\"schema\":{\"type\":\"integer\",\"title\":\"Id\"}}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/product/list\":{\"get\":{\"tags\":[\"Product\"],\"summary\":\"List Products\",\"operationId\":\"list_products_product_list_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/ProductOutputSchema\"},\"type\":\"array\",\"title\":\"Response List Products Product List Get\"}}}}},\"security\":[{\"OAuth2PasswordBearer\":[]}]}},\"/product/search\":{\"get\":{\"tags\":[\"Product\"],\"summary\":\"Search\",\"operationId\":\"search_product_search_get\",\"security\":[{\"OAuth2PasswordBearer\":[]}],\"parameters\":[{\"name\":\"key\",\"in\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Key\"}},{\"name\":\"value\",\"in\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Value\"}}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/ProductOutputSchema\"}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/users/register\":{\"post\":{\"tags\":[\"User\"],\"summary\":\"Register\",\"description\":\"Register new user\",\"operationId\":\"register_users_register_post\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/UserSchema\"}}},\"required\":true},\"responses\":{\"201\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}},\"/users/login\":{\"post\":{\"tags\":[\"User\"],\"summary\":\"Login\",\"operationId\":\"login_users_login_post\",\"requestBody\":{\"content\":{\"application/x-www-form-urlencoded\":{\"schema\":{\"$ref\":\"#/components/schemas/Body_login_users_login_post\"}}},\"required\":true},\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}}},\"components\":{\"schemas\":{\"Body_login_users_login_post\":{\"properties\":{\"grant_type\":{\"anyOf\":[{\"type\":\"string\",\"pattern\":\"password\"},{\"type\":\"null\"}],\"title\":\"Grant Type\"},\"username\":{\"type\":\"string\",\"title\":\"Username\"},\"password\":{\"type\":\"string\",\"title\":\"Password\"},\"scope\":{\"type\":\"string\",\"title\":\"Scope\",\"default\":\"\"},\"client_id\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Client Id\"},\"client_secret\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Client Secret\"}},\"type\":\"object\",\"required\":[\"username\",\"password\"],\"title\":\"Body_login_users_login_post\"},\"CategoryOutputSchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"},\"id\":{\"type\":\"integer\",\"title\":\"Id\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\",\"id\"],\"title\":\"CategoryOutputSchema\"},\"CategorySchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\"],\"title\":\"CategorySchema\"},\"HTTPValidationError\":{\"properties\":{\"detail\":{\"items\":{\"$ref\":\"#/components/schemas/ValidationError\"},\"type\":\"array\",\"title\":\"Detail\"}},\"type\":\"object\",\"title\":\"HTTPValidationError\"},\"ProductOutputSchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"},\"price\":{\"type\":\"number\",\"exclusiveMinimum\":0.0,\"title\":\"Price\"},\"stock\":{\"type\":\"integer\",\"minimum\":0.0,\"title\":\"Stock\"},\"id\":{\"type\":\"integer\",\"title\":\"Id\"},\"category\":{\"$ref\":\"#/components/schemas/CategoryOutputSchema\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\",\"price\",\"stock\",\"id\",\"category\"],\"title\":\"ProductOutputSchema\"},\"ProductSchema\":{\"properties\":{\"name\":{\"type\":\"string\",\"title\":\"Name\"},\"slug\":{\"type\":\"string\",\"maxLength\":256,\"minLength\":3,\"pattern\":\"^([a-z]|-|_)+$\",\"title\":\"Slug\"},\"price\":{\"type\":\"number\",\"exclusiveMinimum\":0.0,\"title\":\"Price\"},\"stock\":{\"type\":\"integer\",\"minimum\":0.0,\"title\":\"Stock\"}},\"type\":\"object\",\"required\":[\"name\",\"slug\",\"price\",\"stock\"],\"title\":\"ProductSchema\"},\"UserSchema\":{\"properties\":{\"username\":{\"type\":\"string\",\"pattern\":\"^([a-z]|[A-Z]|[0-9]|-|_|@)+$\",\"title\":\"Username\"},\"password\":{\"type\":\"string\",\"title\":\"Password\"}},\"type\":\"object\",\"required\":[\"username\",\"password\"],\"title\":\"UserSchema\"},\"ValidationError\":{\"properties\":{\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"type\":\"array\",\"title\":\"Location\"},\"msg\":{\"type\":\"string\",\"title\":\"Message\"},\"type\":{\"type\":\"string\",\"title\":\"Error Type\"}},\"type\":\"object\",\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\"}},\"securitySchemes\":{\"OAuth2PasswordBearer\":{\"type\":\"oauth2\",\"flows\":{\"password\":{\"scopes\":{},\"tokenUrl\":\"/users/login\"}}}}}}",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_6c0360b367be45ca905b445f6e599966",
+      "parentId": "env_f27fd91974a033c3481cd33224913fbc803f0896",
+      "modified": 1692650633561,
+      "created": 1692649791892,
+      "name": "OpenAPI env example.com",
+      "data": {
+        "scheme": "http",
+        "base_path": "",
+        "host": "example.com",
+        "oauth2ClientId": "clientId",
+        "oauth2ClientSecret": "clientSecret",
+        "oauth2Username": "username",
+        "oauth2Password": "password",
+        "base_url": "http://127.0.0.1:8000"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "scheme",
+          "base_path",
+          "host",
+          "oauth2ClientId",
+          "oauth2ClientSecret",
+          "oauth2Username",
+          "oauth2Password",
+          "base_url"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1692649791892,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_a5ad3edfd8dd4a799a579040e2e7fa45",
+      "parentId": "env_f27fd91974a033c3481cd33224913fbc803f0896",
+      "modified": 1692649811043,
+      "created": 1692649811043,
+      "name": "OpenAPI env example.com",
+      "data": {
+        "scheme": "http",
+        "base_path": "",
+        "host": "example.com",
+        "oauth2ClientId": "clientId",
+        "oauth2ClientSecret": "clientSecret",
+        "oauth2Username": "username",
+        "oauth2Password": "password"
+      },
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1692649811043,
+      "_type": "environment"
+    }
+  ]
+}

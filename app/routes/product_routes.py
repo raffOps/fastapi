@@ -1,18 +1,17 @@
-import json
-
-from sqlalchemy.orm import Session
-from sqlalchemy.exc import InvalidRequestError
 from fastapi import APIRouter, Depends, status, HTTPException
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.orm import Session
 
-from app.use_cases.product import ProductUseCases
-from app.schemas.product import ProductSchema, ProductOutputSchema
 from app.routes.deps import get_db_session, auth
+from app.schemas.product import ProductSchema, ProductOutputSchema
+from app.use_cases.product import ProductUseCases
 
 product_router = APIRouter(
     prefix='/product',
     tags=['Product'],
     dependencies=[Depends(auth)]
 )
+
 
 @product_router.post('/add', status_code=status.HTTP_201_CREATED)
 def add_product(
@@ -28,7 +27,7 @@ def add_product(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=repr(e)
-            ) from e
+        ) from e
 
 
 @product_router.post('/update/{id}', status_code=status.HTTP_200_OK)
@@ -43,6 +42,7 @@ def update_product(
     except ValueError as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND) from e
 
+
 @product_router.delete('{id}')
 def delete(
         id: int,
@@ -53,6 +53,7 @@ def delete(
         uc.delete(id)
     except ValueError as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND) from e
+
 
 @product_router.get('/list')
 def list_products(db_session: Session = Depends(get_db_session)) -> list[ProductOutputSchema]:

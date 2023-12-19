@@ -14,6 +14,7 @@ def test_category_schema():
         'slug': 'roupa'
     }
 
+
 def test_category_schema_invalid_slug():
     with pytest.raises(ValueError):
         category = CategorySchema(

@@ -1,16 +1,18 @@
 from datetime import datetime, timedelta, timezone
+
 import pytest
 from decouple import config
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from app.schemas.user import UserSchema
+
 from app.db.models import UserModel
+from app.schemas.user import UserSchema
 from app.use_cases.user import UserUseCases
 
 crypt_context = CryptContext(schemes=['sha256_crypt'])
-SECRET_KEY=config('SECRET_KEY')
-ALGORITHM=config('ALGORITHM')
+SECRET_KEY = config('SECRET_KEY')
+ALGORITHM = config('ALGORITHM')
 
 
 def test_register_user(db_session):

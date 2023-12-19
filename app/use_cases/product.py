@@ -1,8 +1,9 @@
-from typing import List, Type
+from typing import Type
 
-from sqlalchemy.orm import Session, exc
-from app.schemas.product import ProductSchema, ProductOutputSchema
+from sqlalchemy.orm import Session
+
 from app.db.models import ProductModel, CategoryModel
+from app.schemas.product import ProductSchema, ProductOutputSchema
 
 
 class ProductUseCases:
@@ -10,8 +11,8 @@ class ProductUseCases:
         self.db_session = db_session
 
     def add(self, product: ProductSchema, category_slug: str):
-        category = self.db_session.\
-            query(CategoryModel).\
+        category = self.db_session. \
+            query(CategoryModel). \
             filter_by(slug=category_slug).first()
         if not category:
             raise ValueError(f'Category {category_slug} not found')
@@ -47,21 +48,19 @@ class ProductUseCases:
         self.db_session.delete(product)
         self.db_session.commit()
 
-
     def list_products(self) -> list[ProductOutputSchema]:
-        products =  self.db_session.query(ProductModel).all()
+        products = self.db_session.query(ProductModel).all()
 
         return [
             self.serialize_product(product)
             for product in products
         ]
 
-
     def search(self, key: str, value: str) -> ProductOutputSchema:
         if (
-            product := self.db_session.\
-                query(ProductModel).\
-                filter_by(**{key: value}).first()
+                product := self.db_session. \
+                        query(ProductModel). \
+                        filter_by(**{key: value}).first()
         ) is None:
             raise ValueError(f'Product with {key}:{value} not found')
         return self.serialize_product(product)

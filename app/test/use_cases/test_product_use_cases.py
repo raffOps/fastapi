@@ -1,9 +1,11 @@
 import pytest
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm import Session
-from app.use_cases.product import ProductUseCases
-from app.schemas.product import ProductSchema
+
 from app.db.models import ProductModel, CategoryModel
+from app.schemas.product import ProductSchema
+from app.use_cases.product import ProductUseCases
+
 
 def test_add_product(db_session: Session, product_schema_camisa: ProductSchema, category_roupa_on_db: CategoryModel):
     uc_product = ProductUseCases(db_session)
@@ -125,6 +127,7 @@ def test_search_product_by_non_existent_value(
     uc = ProductUseCases(db_session)
     with pytest.raises(ValueError):
         uc.search(key='name', value='bar')
+
 
 def test_search_product_by_invalid_key(
         db_session: Session

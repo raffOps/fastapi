@@ -1,12 +1,14 @@
-from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, Response, status, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
+from sqlalchemy.orm import Session
 
 from app.routes.deps import get_db_session
 from app.schemas.user import UserSchema
 from app.use_cases.user import UserUseCases
 
 user_routes = APIRouter(prefix='/users', tags=['User'])
+
+
 @user_routes.post(
     path='/register',
     status_code=status.HTTP_201_CREATED,
