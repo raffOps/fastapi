@@ -1,32 +1,37 @@
 version: "3.1"
 services:
-    app:
-        build:
-            context: .
-        ports:
-            - 8000:8000
-        volumes:
-            - ./app:/app
-        command: sh -c "uvicorn main:app --host 0.0.0.0 --reload"
-        depends_on:
-            - postgres
-            - postgres-test
-        env_file:
-            - ./.env
-    postgres:
-        image: postgres:13
-        ports:
-            - 5432:5432
-        volumes:
-            - ./var/cache/postgres_data:/var/lib/postgresql/data
-        env_file:
-            - ./.env
+  app:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
+    command: sh -c "uvicorn main:app --host 0.0.0.0 --reload"
+    healthcheck:
+      test: curl --fail http://localhost:8000/health-check || exit 1
+      interval: 20s
+      timeout: 10s
+      retries: 2
+    depends_on:
+      - postgres
+      - postgres-test
+    env_file:
+      - ./.env
+  postgres:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - ./var/cache/postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env
 
-    postgres-test:
-        image: postgres:13
-        ports:
-            - 5433:5432
-        volumes:
-            - ./var/cache/postgres_data_test:/var/lib/postgresql/data
-        env_file:
-            - ./.env
+  postgres-test:
+    image: postgres:13
+    ports:
+      - 5433:5432
+    volumes:
+      - ./var/cache/postgres_data_test:/var/lib/postgresql/data
+    env_file:
+      - ./.env
